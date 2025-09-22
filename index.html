@@ -1,0 +1,53 @@
+<h1>Week 1 Demo</h1>
+<h2>Week 1 Demo</h2>
+
+<!-- kiem tra so nguyen to --><!DOCTYPE html>
+<html>
+<head>
+<title>Prime Number Checker</title>
+</head>
+<body>
+
+<h1>Prime Number Checker</h1>
+
+<input type="number" id="numberInput" placeholder="Enter a number">
+<button onclick="checkPrime()">Check</button>
+
+<p id="result"></p>
+
+<script>
+function isPrime(num) {
+  if (num <= 1) return false;
+  if (num <= 3) return true;
+
+  if (num % 2 === 0 || num % 3 === 0) return false;
+
+  for (let i = 5; i * i <= num; i = i + 6) {
+    if (num % i === 0 || num % (i + 2) === 0) return false;
+  }
+
+  return true;
+}
+
+function checkPrime() {
+  let inputElement = document.getElementById("numberInput");
+  let resultElement = document.getElementById("result");
+  
+  let num = parseInt(inputElement.value);
+
+  if (isNaN(num)) {
+    resultElement.textContent = "Please enter a valid number.";
+  } else {
+    if (isPrime(num)) {
+      resultElement.textContent = num + " is a prime number.";
+    } else {
+      resultElement.textContent = num + " is not a prime number.";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
+
+
